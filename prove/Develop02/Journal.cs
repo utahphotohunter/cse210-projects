@@ -12,7 +12,8 @@ public class Journal
     {
         foreach (Entry e in _entries)
         {
-            e.Display();
+            string summary = e.ReturnJournalEntry();
+            Console.WriteLine(summary);
         }
     }
     
