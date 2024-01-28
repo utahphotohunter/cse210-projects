@@ -87,43 +87,129 @@ public class Word
         while (userEntry != "quit" && userEntry != "Quit")
         {
 
-
-            foreach (string i in firstList)
-            //loop to iterate through each word in the list of words derived from the given verse of scripture, randomly picks which words to hide, and then hides those words
+            
+            if (count % 2 != 0)
             {
-                int length = i.Length;
-                //measures the length of each word in the list
-                string listWord = i;
-                //sets variable to store each word
-                string wordReplace = new string(underscore, length);
-                //sets variable for calling funtion to replace each letter in that word with an _
-                int hideOrShow = rnd.Next(1,3);
-                //generates reandom number between 1 and 2
-
-                if (hideOrShow == 1)
-                //checks if random number is 1
+                Console.Clear();
+                secondList.Clear();
+                foreach (string i in firstList)
+                //loop to iterate through each word in the list of words derived from the given verse of scripture, randomly picks which words to hide, and then hides those words
                 {
-                    listWord = wordReplace;
-                    //replaces the chosen word with an equal number of _'s
-                    result = $"{listWord} ";
-                    //stores new _ version of the word in variable 
-                    Console.Write(result);
-                    count = count + 1;
-                }
+                    int length = i.Length;
+                    //measures the length of each word in the list
+                    string listWord = i;
+                    //sets variable to store each word
+                    string wordReplace = new string(underscore, length);
+                    //sets variable for calling funtion to replace each letter in that word with an _
+                    int hideOrShow = rnd.Next(1,3);
+                    //generates reandom number between 1 and 2
 
-                else
-                //checks if random number is 2
-                {
-                    result = $"{i} ";
-                    //leaves the word as it is in the list and stores it in a variable
-                    Console.Write(result);
-                    count = count + 1;
+                    // string currentState = string('_', length);
+
+                    if (hideOrShow == 1)
+                    //checks if random number is 1
+                    {
+
+                        if (i == wordReplace)
+                        {
+                            result = $"{i} ";
+                            //leaves the word as it is in the list and stores it in a variable
+                            Console.Write(result);
+                            secondList.Add(result);
+                            count = count + 1;
+                        }
+
+                        else
+                        {
+                             listWord = wordReplace;
+                            //replaces the chosen word with an equal number of _'s
+                            result = $"{listWord} ";
+                            //stores new _ version of the word in variable 
+                            Console.Write(result);
+                            secondList.Add(result);
+                            count = count + 1;
+                        }
+                    }
+
+                    else
+                    //checks if random number is 2
+                    {
+                        result = $"{i} ";
+                        //leaves the word as it is in the list and stores it in a variable
+                        Console.Write(result);
+                        secondList.Add(result);
+                        count = count + 1;
+                    }
                 }
-                
+                Console.WriteLine("\n");
+                Console.Write("Press the 'Enter' key to continue or type 'quit' to end.\n\nResponse: ");
+                userEntry = Console.ReadLine();
             }
-            Console.WriteLine();
-            Console.Write("Press the 'Enter' key to continue or type 'quit' to end.\n\nResponse: ");
-            userEntry = Console.ReadLine();
+
+
+            else if (count % 2 == 0)
+            {
+                Console.Clear();
+                firstList.Clear();
+                foreach (string i in secondList)
+                //loop to iterate through each word in the list of words derived from the given verse of scripture, randomly picks which words to hide, and then hides those words
+                {
+                    int length = i.Length;
+                    //measures the length of each word in the list
+                    string listWord = i;
+                    //sets variable to store each word
+                    string wordReplace = new string(underscore, length);
+                    //sets variable for calling funtion to replace each letter in that word with an _
+                    int hideOrShow = rnd.Next(1,3);
+                    //generates reandom number between 1 and 2
+
+                    if (hideOrShow == 1)
+                    //checks if random number is 1
+                    {
+
+                        if (i == wordReplace)
+                        {
+                            result = $"{i} ";
+                            //leaves the word as it is in the list and stores it in a variable
+                            Console.Write(result);
+                            firstList.Add(result);
+                            count = count + 1;
+                        }
+
+                        else
+                        {
+                            listWord = wordReplace;
+                            //replaces the chosen word with an equal number of _'s
+                            result = $"{listWord} ";
+                            //stores new _ version of the word in variable 
+                            Console.Write(result);
+                            firstList.Add(result);
+                            count = count + 1;
+                        }
+
+
+                        
+                    }
+
+                    else
+                    //checks if random number is 2
+                    {
+                        result = $"{i} ";
+                        //leaves the word as it is in the list and stores it in a variable
+                        Console.Write(result);
+                        firstList.Add(result);
+                        count = count + 1;
+                    }
+                    
+                }
+                Console.WriteLine("\n");
+                Console.Write("Press the 'Enter' key to continue or type 'quit' to end.\n\nResponse: ");
+                userEntry = Console.ReadLine();
+            }
+
+            // Console.WriteLine();
+            // Console.Write("Press the 'Enter' key to continue or type 'quit' to end.\n\nResponse: ");
+            // userEntry = Console.ReadLine();
         }
     }
 
