@@ -1,3 +1,8 @@
+using System.Formats.Asn1;
+using System.Globalization;
+using System.Linq.Expressions;
+using System.Net.Http.Headers;
+using System.Runtime.InteropServices.Marshalling;
 using System.Xml.XPath;
 
 public class Word
@@ -19,9 +24,11 @@ public class Word
     }
 
 
-    public string HideWords()
+    public void HideWords()
     //looks at each word in the list and hides them randomly
     {
+        int count = 0;
+        List<string> firstList = new List<string> {};
         List<string> splitScripture = GetList();
         //gets the list from the GetList function and stores it in a variable 
         Random rnd = new Random();
@@ -31,38 +38,93 @@ public class Word
         string result = "jack";
         //sets the initial value of the result variable to something meaningless
         
-        foreach (string i in splitScripture)
-        //loop to iterate through each word in the list of words derived from the given verse of scripture, randomly picks which words to hide, and then hides those words
-        {
-            int length = i.Length;
-            //measures the length of each word in the list
-            string listWord = i;
-            //sets variable to store each word
-            string wordReplace = new string(underscore, length);
-            //sets variable for calling funtion to replace each letter in that word with an _
-            int hideOrShow = rnd.Next(1,3);
-            //generates reandom number between 1 and 2
-            if (hideOrShow == 1)
-            //checks if random number is 1
-            {
-                listWord = wordReplace;
-                //replaces the chosen word with an equal number of _'s
-                result = $"{listWord} ";
-                //stores new _ version of the word in variable 
-                
-            }
 
-            else if (hideOrShow == 2)
-            //checks if random number is 2
+        while (count == 0)
+        {
+            foreach (string i in splitScripture)
+            //loop to iterate through each word in the list of words derived from the given verse of scripture, randomly picks which words to hide, and then hides those words
             {
-                result = $"{i} ";
-                //leaves the word as it is in the list and stores it in a variable
+                int length = i.Length;
+                //measures the length of each word in the list
+                string listWord = i;
+                //sets variable to store each word
+                string wordReplace = new string(underscore, length);
+                //sets variable for calling funtion to replace each letter in that word with an _
+                int hideOrShow = rnd.Next(1,3);
+                //generates reandom number between 1 and 2
+
+                if (hideOrShow == 1)
+                //checks if random number is 1
+                {
+                    listWord = wordReplace;
+                    //replaces the chosen word with an equal number of _'s
+                    result = $"{listWord} ";
+                    //stores new _ version of the word in variable 
+                    Console.Write(result);
+                    firstList.Add(result);
+                    count = count + 1;
+                }
+
+                else
+                //checks if random number is 2
+                {
+                    result = $"{i} ";
+                    //leaves the word as it is in the list and stores it in a variable
+                    Console.Write(result);
+                    firstList.Add(result);
+                    count = count + 1;
+                }
                 
             }
         }
-        return result;
-        //returns the results
-        
+
+        Console.WriteLine("\n");
+        Console.Write("Press the 'Enter' key to continue or type 'quit' to end.\n\nResponse: ");
+        string userEntry = Console.ReadLine();
+
+        List<string> secondList = new List<string> {};
+
+        while (userEntry != "quit" && userEntry != "Quit")
+        {
+
+
+            foreach (string i in firstList)
+            //loop to iterate through each word in the list of words derived from the given verse of scripture, randomly picks which words to hide, and then hides those words
+            {
+                int length = i.Length;
+                //measures the length of each word in the list
+                string listWord = i;
+                //sets variable to store each word
+                string wordReplace = new string(underscore, length);
+                //sets variable for calling funtion to replace each letter in that word with an _
+                int hideOrShow = rnd.Next(1,3);
+                //generates reandom number between 1 and 2
+
+                if (hideOrShow == 1)
+                //checks if random number is 1
+                {
+                    listWord = wordReplace;
+                    //replaces the chosen word with an equal number of _'s
+                    result = $"{listWord} ";
+                    //stores new _ version of the word in variable 
+                    Console.Write(result);
+                    count = count + 1;
+                }
+
+                else
+                //checks if random number is 2
+                {
+                    result = $"{i} ";
+                    //leaves the word as it is in the list and stores it in a variable
+                    Console.Write(result);
+                    count = count + 1;
+                }
+                
+            }
+            Console.WriteLine();
+            Console.Write("Press the 'Enter' key to continue or type 'quit' to end.\n\nResponse: ");
+            userEntry = Console.ReadLine();
+        }
     }
 
 
