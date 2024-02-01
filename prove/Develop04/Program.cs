@@ -13,17 +13,21 @@ class Program
 
         Console.Write($"{main.GetOpenMessage()}\n\n");
 
-        Console.WriteLine("1. Breathing Control");
-        Console.WriteLine("2. Reflection");
-        Console.WriteLine("3. Journal Prompts");
-        Console.WriteLine("4. Quit\n");
+        string userSelection = "0";
 
-        Console.Write("Please enter your selection: ");
-        string userSelection = Console.ReadLine();
-
-        while (userSelection == "1" || userSelection == "2" || userSelection == "3")
+        while (userSelection != "4")
         {
-             if (userSelection == "1")
+            Console.WriteLine("1. Breathing Control");
+            Console.WriteLine("2. Reflection");
+            Console.WriteLine("3. Journal Prompts");
+            Console.WriteLine("4. Quit\n");
+
+            Console.Write("Please enter your selection: ");
+            string userResponse = Console.ReadLine();
+            userSelection = userResponse;
+
+
+            if (userSelection == "1")
             {
                 BreathingActivity breath1 = new BreathingActivity();
                 Console.WriteLine("");
@@ -43,11 +47,26 @@ class Program
                 breath1.BreathingExercise(breath1.GetDuration());
 
                 breath1.DisplayEndMessage(breath1.GetName(), breath1.GetDuration());
+                
+                Thread.Sleep(2000);
+                Console.Clear();
             }
 
             else if (userSelection == "2")
             {
-                
+
+            }
+
+            else if (userSelection == "3")
+            {
+
+            }
+
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Have a wonderful day, and remember to be mindful!");
+                Console.WriteLine("");
             }
         }
 
