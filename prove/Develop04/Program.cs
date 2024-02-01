@@ -8,6 +8,9 @@ class Program
         Console.WriteLine("\n");
 
         Activity main = new Activity();
+        BreathingActivity breath1 = new BreathingActivity();
+        ReflectionActivity reflection1 = new ReflectionActivity();
+        
 
         main.SetOpenMessage("Welcome to the Relaxation Lounge.\n\nThe following is a list of activities that are designed to help relieve stress and increase mindfulness. Where would you like to start?");
 
@@ -29,7 +32,6 @@ class Program
 
             if (userSelection == "1")
             {
-                BreathingActivity breath1 = new BreathingActivity();
                 Console.WriteLine("");
                 breath1.SetName("Breathing Room");
                 breath1.DisplayOpenMessage(breath1.GetName());
@@ -54,7 +56,26 @@ class Program
 
             else if (userSelection == "2")
             {
+                Console.WriteLine("");
+                reflection1.SetName("Reflection Activity");
+                reflection1.DisplayOpenMessage(reflection1.GetName());
+                Console.WriteLine("");
 
+                reflection1.SetDescription("In this activity, you will be given a prompt to think about. Then, questions relating to this prompt will appear one by one. All you need to do is quietly think of responses to those questions. This will help you focus on some positive aspects of you life. Enjoy!");
+
+                Console.WriteLine(reflection1.GetDescription());
+
+                Console.Write("How many seconds would you like to participate in this activity for? ");
+                string userSeconds = Console.ReadLine();
+                int seconds = int.Parse(userSeconds);
+                reflection1.SetDuration(seconds);
+
+                reflection1.ReflectionExercise(seconds, reflection1.GetPromptList(), reflection1.GetQuestionList()); 
+
+                reflection1.DisplayEndMessage(reflection1.GetName(), reflection1.GetDuration());
+                
+                Thread.Sleep(2000);
+                Console.Clear();
             }
 
             else if (userSelection == "3")
