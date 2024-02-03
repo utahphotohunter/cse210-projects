@@ -2,25 +2,12 @@ using System.Dynamic;
 
 class ReflectionActivity : Activity
 {
-    private int _count;
-
     private List<string> _prompts = new List<string> {"Think of a time you saw the Lord's hand in your life this week.", "Consider what has been one good thing about your day today.", "Think of an act of kindness you witnessed this month.", "Think of a time you felt happy.", "Think of a small miracle have you seen today."};
     private List<string> _questions = new List<string> {"How frequently does this happen?", "Do you think this happens more often than you notice?", "Is this something anyone can experience in daily life?", "Could you make this happen more frequently?", "How could you use this to make someone's day better?"};
 
     private List<string> _spinnerChars = new List<string> {"\\", "|", "/", "-", "\\", "|", "/", "-"};
 
     private int _delayTime = 500;
-
-
-    public void SetCount(int count)
-    {
-        _count = count;
-    }
-
-    public int GetCount()
-    {
-        return _count;
-    }
 
     public void AddToList(List<string> list, string entry)
     {

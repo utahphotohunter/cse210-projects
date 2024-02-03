@@ -10,6 +10,7 @@ class Program
         Activity main = new Activity();
         BreathingActivity breath1 = new BreathingActivity();
         ReflectionActivity reflection1 = new ReflectionActivity();
+        ListingActivity listing1 = new ListingActivity();
         
 
         main.SetOpenMessage("Welcome to the Relaxation Lounge.\n\nThe following is a list of activities that are designed to help relieve stress and increase mindfulness. Where would you like to start?");
@@ -22,7 +23,7 @@ class Program
         {
             Console.WriteLine("1. Breathing Control");
             Console.WriteLine("2. Reflection");
-            Console.WriteLine("3. Journal Prompts");
+            Console.WriteLine("3. Gratitude Journaling");
             Console.WriteLine("4. Quit\n");
 
             Console.Write("Please enter your selection: ");
@@ -33,7 +34,7 @@ class Program
             if (userSelection == "1")
             {
                 Console.WriteLine("");
-                breath1.SetName("Breathing Room");
+                breath1.SetName("Breathing Activity");
                 breath1.DisplayOpenMessage(breath1.GetName());
                 Console.WriteLine("");
 
@@ -64,6 +65,7 @@ class Program
                 reflection1.SetDescription("In this activity, you will be given a prompt to think about. Then, questions relating to this prompt will appear one by one. All you need to do is quietly think of responses to those questions. This will help you focus on some positive aspects of you life. Enjoy!");
 
                 Console.WriteLine(reflection1.GetDescription());
+                Console.WriteLine("");
 
                 Console.Write("How many seconds would you like to participate in this activity for? ");
                 string userSeconds = Console.ReadLine();
@@ -80,6 +82,28 @@ class Program
 
             else if (userSelection == "3")
             {
+                Console.WriteLine("");
+                listing1.SetName("Gratitude Journaling");
+                listing1.DisplayOpenMessage(listing1.GetName());
+                Console.WriteLine("");
+
+                listing1.SetDescription("In this activity, you will be given a random prompt to think about for a few seconds and then list as many things as you can in response to the prompt. This can help you see how much there is to be grateful for in the world and help develop a positive mindset.");
+
+                Console.WriteLine(listing1.GetDescription());
+                Console.WriteLine("");
+
+                Console.Write("How many seconds would you like to participate in this activity for? ");
+                string userSeconds = Console.ReadLine();
+                int seconds = int.Parse(userSeconds);
+                listing1.SetDuration(seconds);
+
+                listing1.ListingExercise(seconds, listing1.GetPromptsList(), listing1.GetResponseList());
+
+                listing1.DisplayEndMessage(listing1.GetName(), listing1.GetDuration());
+                
+                Thread.Sleep(2000);
+                Console.Clear();
+
 
             }
 
