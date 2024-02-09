@@ -62,5 +62,14 @@ class ChecklistGoal : Goal
             return amountCompleted;
         }
     }
+//------------------------------------------------------------------------------------
+    public override List<string> CreateGoal(string shortName, string description, string points, string isCompleted, int target, int bonus, string goalType = "ChecklistGoal", int amountCompleted = 0)
+    {
+        string tartgetString = target.ToString();
+        string bonusString = bonus.ToString();
+        string amountCompletedString = amountCompleted.ToString();
+        List<string> result = new List<string> {shortName, description, points, isCompleted, amountCompletedString, tartgetString, bonusString, goalType};
+        return result;
+    }
     
 }
