@@ -1,6 +1,7 @@
 class GoalManager
 {
     private List<List<string>> _goals;
+    private int _points;
 //------------------------------------------------------------------------------------
     public void AddGoal(List<string> entry)
     {
@@ -41,7 +42,11 @@ class GoalManager
 //------------------------------------------------------------------------------------
     public void DisplayPlayerInfo()
     {
-        
+       int goalsMade = _goals.Count();
+       int pointsReceived = _points;
+
+       Console.WriteLine($"Goals Made: {goalsMade}");
+       Console.WriteLine($"Total Points: {pointsReceived}");
     }
 //------------------------------------------------------------------------------------
     public void SaveGoals()

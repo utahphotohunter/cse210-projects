@@ -1,5 +1,3 @@
-using System.Xml.XPath;
-
 class EternalGoal : Goal
 {
     public override List<string> CreateGoal(string shortName, string description, string points, string isCompleted = "No", int target = 0, int bonus = 0, string goalType = "EternalGoal", int amountCompleted = 0)
