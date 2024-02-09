@@ -11,6 +11,8 @@ class Program
         {
             Console.WriteLine("\n");
 
+            goalManager.DisplayPlayerInfo();
+            Console.WriteLine();
             Console.WriteLine("Please choose from one of the options below:\n");
 
             Console.WriteLine("1. Create New Goal");
@@ -80,6 +82,23 @@ class Program
             else if (userEntry == "2")
             {
                 goalManager.DisplayGoals();
+                Console.WriteLine();
+
+                Console.Write("What goal would you like to record an event for? ");
+                string goalSelection = Console.ReadLine();
+
+                Console.WriteLine();
+                Console.Write("Record your event here: ");
+                Console.ReadLine();
+
+                int goalSelectionInt = int.Parse(goalSelection);
+                goalSelectionInt = goalSelectionInt - 1;
+                List<List<string>> currentGoalsList = goalManager.GetGoals();
+                List<string> selectedGoal = currentGoalsList[goalSelectionInt];
+                selectedGoal[3] = "X";
+                int selectedGoalPoints = int.Parse(selectedGoal[2]);
+                goalManager.AddPoints(selectedGoalPoints);
+
 
             }
 

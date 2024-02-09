@@ -1,7 +1,12 @@
 class GoalManager
 {
-    private List<List<string>> _goals;
-    private int _points;
+    private List<List<string>> _goals = new List<List<string>> {};
+    private int _points = 0;
+//------------------------------------------------------------------------------------
+    public void AddPoints(int points)
+    {
+        _points = _points + points;
+    }
 //------------------------------------------------------------------------------------
     public void AddGoal(List<string> entry)
     {
@@ -25,20 +30,30 @@ class GoalManager
             
             if (goalType == "SimpleGoal")
             {
-                Console.WriteLine($"{goalNumber}. [{completed}], {name}, {points} points");
+                Console.WriteLine($"{goalNumber}. [{completed}] - Name: {name} - {points} points");
             }
 
             else if (goalType == "EternalGoal")
             {
-                Console.WriteLine($"{goalNumber}. [ ], {name}, {points} points");
+                Console.WriteLine($"{goalNumber}. [ ] - Name: {name} - {points} points");
             }
 
             else if (goalType == "ChecklistGoal")
             {
-                Console.WriteLine($"{goalNumber}. [{completed}], {name}, {points} points -- {amountCompleted}/{target} complete");
+                Console.WriteLine($"{goalNumber}. [{completed}] - Name: {name} - {points} points -- {amountCompleted}/{target} complete");
             }
         }
     }
+//------------------------------------------------------------------------------------
+    public List<List<string>> GetGoals()
+    {
+      return _goals;
+    }
+
+
+
+
+
 //------------------------------------------------------------------------------------
     public void DisplayPlayerInfo()
     {
