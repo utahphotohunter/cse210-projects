@@ -34,9 +34,9 @@ class ChecklistGoal : Goal
         return _bonus;
     }
 //------------------------------------------------------------------------------------
-    public override string IsComplete(int complete)
+    public override string IsComplete(int amountCompleted, int target)
     {
-        if (complete == 1)
+        if (amountCompleted >= target)
         {
             return "X";
         }
@@ -47,27 +47,19 @@ class ChecklistGoal : Goal
         }
     }
 //------------------------------------------------------------------------------------
-    public override int RecordEvent(int target, int completed)
+    public override int RecordEvent(int target, int amountCompleted)
     {
         Console.Write("Event: ");
         string recordedEvent = Console.ReadLine();
 
         if (recordedEvent != "")
         {
-            completed = completed + 1;
-            if (completed >= target)
-            {
-                return 1;
-            }
-            else
-            {
-                return 2;
-            }
+            return amountCompleted;
         }
 
         else
         {
-            return 2;
+            return amountCompleted;
         }
     }
     

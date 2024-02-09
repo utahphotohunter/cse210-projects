@@ -65,9 +65,9 @@ class Goal
         }
     }
 //------------------------------------------------------------------------------------
-    public virtual string IsComplete(int complete)
+    public virtual string IsComplete(int amountCompleted, int target = 1)
     {
-        if (complete == 1)
+        if (amountCompleted == target)
         {
             return "X";
         }
