@@ -78,7 +78,7 @@ class Goal
         }
     }
 //------------------------------------------------------------------------------------
-    public virtual List<string> CreateGoal(string shortName, string description, string points, string isCompleted, int target, int bonus, string goalType, int amountCompleted = 0)
+    public virtual List<string> CreateGoal(string shortName, string description, string points, string isCompleted, int target, int bonus, int amountCompleted = 0, string goalType = "goal")
     {
         string tartgetString = target.ToString();
         string bonusString = bonus.ToString();

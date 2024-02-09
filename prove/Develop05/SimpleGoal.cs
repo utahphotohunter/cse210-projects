@@ -1,6 +1,6 @@
 class SimpleGoal : Goal
 {
-    public override List<string> CreateGoal(string shortName, string description, string points, string isCompleted = "No", int target = 0, int bonus = 0, string goalType = "SimpleGoal", int amountCompleted = 0)
+    public override List<string> CreateGoal(string shortName, string description, string points, string isCompleted = "No", int target = 0, int bonus = 0, int amountCompleted = 0, string goalType = "SimpleGoal")
     {
         string tartgetString = target.ToString();
         string bonusString = bonus.ToString();

@@ -1,6 +1,6 @@
 class ChecklistGoal : Goal
 {
-    private int _amountCompleted;
+    private int _amountCompleted = 0;
     private int _target;
     private int _bonus;
 //------------------------------------------------------------------------------------
@@ -14,9 +14,12 @@ class ChecklistGoal : Goal
         return _amountCompleted;
     }
 //------------------------------------------------------------------------------------
-    public void SetTarget(int target)
+    public void SetTarget()
     {
-        _target = target;
+        Console.Write("How many times do you want to accomplish this goal? ");
+        string target = Console.ReadLine();
+        int targetInt = int.Parse(target);
+        _target = targetInt;
     }
 //------------------------------------------------------------------------------------
     public int GetTarget()
@@ -24,9 +27,12 @@ class ChecklistGoal : Goal
         return _target;
     }
 //------------------------------------------------------------------------------------
-    public void SetBonus(int bonus)
+    public void SetBonus()
     {
-        _bonus = bonus;
+        Console.Write("How much would you like the bonus to be once it has all been accomplished? ");
+        string bonus = Console.ReadLine();
+        int bonusInt = int.Parse(bonus);
+        _bonus = bonusInt;
     }
 //------------------------------------------------------------------------------------
     public int GetBonus()
@@ -54,6 +60,7 @@ class ChecklistGoal : Goal
 
         if (recordedEvent != "")
         {
+            _amountCompleted = amountCompleted + 1;
             return amountCompleted;
         }
 
@@ -63,7 +70,7 @@ class ChecklistGoal : Goal
         }
     }
 //------------------------------------------------------------------------------------
-    public override List<string> CreateGoal(string shortName, string description, string points, string isCompleted, int target, int bonus, string goalType = "ChecklistGoal", int amountCompleted = 0)
+    public override List<string> CreateGoal(string shortName, string description, string points, string isCompleted, int target, int bonus, int amountCompleted = 0, string goalType = "ChecklistGoal")
     {
         string tartgetString = target.ToString();
         string bonusString = bonus.ToString();
