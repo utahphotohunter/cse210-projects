@@ -7,14 +7,17 @@ class GoalManager
         _goals.Add(entry);
     }
 //------------------------------------------------------------------------------------
-    public string DisplayGoals()
+    public void DisplayGoals()
     {
-        return "";
+        foreach (Goal i in _goals)
+        {
+            
+        }
     }
 //------------------------------------------------------------------------------------
-    public string DisplayPlayerInfo()
+    public void DisplayPlayerInfo()
     {
-        return "";
+        
     }
 //------------------------------------------------------------------------------------
     public void SaveGoals()
