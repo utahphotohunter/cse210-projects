@@ -4,6 +4,8 @@ class Video
     private string _author;
     private int _length;
 
+    private List<List<string>> _comments = new List<List<string>> {};
+
 // ----------------------------------------------
     public void SetTitle(string title)
     {
@@ -35,6 +37,15 @@ class Video
         return _length;
     }
 
-
+        public void DisplayComments()
+    {
+        foreach (List<string> comment in _comments)
+        {
+            string author = comment[0];
+            string text = comment[1];
+            string result = $"{author}: {text}";
+            Console.WriteLine(result);
+        }
+    }
 
 }
