@@ -37,7 +37,7 @@ class Video
         return _length;
     }
 
-        public void DisplayComments()
+    public void DisplayComments()
     {
         foreach (List<string> comment in _comments)
         {
@@ -46,6 +46,12 @@ class Video
             string result = $"{author}: {text}";
             Console.WriteLine(result);
         }
+    }
+
+    public int CountComments()
+    {
+        int result = _comments.Count();
+        return result;
     }
 
 }
