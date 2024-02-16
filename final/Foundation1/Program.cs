@@ -63,11 +63,30 @@ class Program
 
         superSonic.VideoSummary();
 // ------------------------------------------------------------------------------------------
+        Video inkJetPrinter = new Video();
+        Comment inkJetPrinterC1 = new Comment();
+        Comment inkJetPrinterC2 = new Comment();
+        Comment inkJetPrinterC3 = new Comment();
 
+        inkJetPrinter.SetTitle("The Ink Jet 600 Features and Operations");
+        inkJetPrinter.SetLength(3600);
+        inkJetPrinter.SetAuthor("Ink Jet Printers Inc");
 
+        inkJetPrinterC1.SetAuthor("Sublimation Printers Inc");
+        inkJetPrinterC1.SetText("Still not as good as ours.");
+        inkJetPrinterC2.SetAuthor("mike91");
+        inkJetPrinterC2.SetText("Very informative or our staff.");
+        inkJetPrinterC3.SetAuthor("lazygirl0");
+        inkJetPrinterC3.SetText("I need one.");
 
+        inkJetPrinterC1.MakeComment(inkJetPrinterC1.GetAuthor(), inkJetPrinterC1.GetText());
+        inkJetPrinterC2.MakeComment(inkJetPrinterC2.GetAuthor(), inkJetPrinterC2.GetText());
+        inkJetPrinterC3.MakeComment(inkJetPrinterC3.GetAuthor(), inkJetPrinterC3.GetText());
 
+        inkJetPrinter.AddComments(inkJetPrinterC1.GetComment());
+        inkJetPrinter.AddComments(inkJetPrinterC2.GetComment());
+        inkJetPrinter.AddComments(inkJetPrinterC3.GetComment());
 
-
+        inkJetPrinter.VideoSummary();
     }
 }
