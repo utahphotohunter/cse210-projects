@@ -37,21 +37,38 @@ class Video
         return _length;
     }
 
+    public void AddComments(List<string> comment)
+    {
+        _comments.Add(comment);
+    }
+
     public void DisplayComments()
     {
         foreach (List<string> comment in _comments)
         {
             string author = comment[0];
             string text = comment[1];
-            string result = $"{author}: {text}";
+            string result = $"{author}: \n'{text}'";
             Console.WriteLine(result);
         }
     }
 
-    public int CountComments()
+    public void VideoSummary()
     {
-        int result = _comments.Count();
-        return result;
+        int commentCount = _comments.Count();
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine(_title);
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine($"Created by: {_author}");
+        Console.WriteLine($"{_length} seconds");
+        Console.WriteLine($"{commentCount} comments\n");
+        foreach (List<string> comment in _comments)
+        {
+            string author = comment[0];
+            string text = comment[1];
+            string result = $"{author}: \n    '{text}'";
+            Console.WriteLine(result);
+        }
+        Console.WriteLine("\n");
     }
-
 }
