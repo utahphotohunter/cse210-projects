@@ -24,6 +24,11 @@ class Order
     {
         return _customer;
     }
+
+    public List<List<string>> GetOrderList()
+    {
+        return _orderContent;
+    }
 // ----------------------------------------------
     public void AddToOrder(List<string> product)
     {
@@ -32,7 +37,7 @@ class Order
 
     public void PrintPackingLabel(List<List<string>> orderContent)
     {
-        Console.WriteLine("Packing Label\n");
+        Console.WriteLine("\nPacking Label\n");
         Console.WriteLine("Contents:");
         foreach (List<string> product in orderContent)
         {
@@ -61,19 +66,19 @@ class Order
         return _shippingPrice;
     }
 
-    public float GetOrderPrice(float shippingPrice, List<List<string>> orderContent)
+    public double GetOrderPrice(double shippingPrice, List<List<string>> orderContent)
     {
-        float currentProductTotal = 0;
+        double currentProductTotal = 0;
 
         foreach (List<string> product in orderContent)
         {
-            float productPrice = float.Parse(product[2]);
+            double productPrice = double.Parse(product[2]);
             float productQuantity = float.Parse(product[3]);
-            float productTotal = productPrice * productQuantity;
+            double productTotal = productPrice * productQuantity;
             currentProductTotal = currentProductTotal + productTotal;
         }
 
-        float orderTotal = currentProductTotal + shippingPrice;
-        return orderTotal;
+        double orderTotal = currentProductTotal + shippingPrice;
+        return Math.Round(orderTotal, 2);
     }
 }

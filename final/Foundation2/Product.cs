@@ -3,7 +3,7 @@ class Product
     private List<string> _product = new List<string> {};
     private string _productId;
     private string _name;
-    private float _unitPrice;
+    private double _unitPrice;
     private int _quantity;
 // ----------------------------------------------
     public void SetProductId(string productId)
@@ -26,12 +26,12 @@ class Product
         return _name;
     }
 
-    public void SetPrice(int unitPrice)
+    public void SetPrice(double unitPrice)
     {
         _unitPrice = unitPrice;
     }
 
-    public float GetPrice()
+    public double GetPrice()
     {
         return _unitPrice;
     }
@@ -46,7 +46,7 @@ class Product
         return _quantity;
     }
 // ----------------------------------------------
-    public void MakeProduct(string productId, string name, float unitPrice, int quantity)
+    public void MakeProduct(string productId, string name, double unitPrice, int quantity)
     {
         string unitPriceString = unitPrice.ToString();
         string quantityString = quantity.ToString();
@@ -61,16 +61,4 @@ class Product
     {
         return _product;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -61,6 +61,12 @@ class Address
 // ----------------------------------------------
     public void SetAddress(string streetAddress, string city, string state, string country, string zipCode)
     {
+        _streetAdress = streetAddress;
+        _city = city;
+        _state = state;
+        _country = country;
+        _zipCode = zipCode;
+        
         _address = $"{streetAddress} \n{city}, {state} \n{country} \n{zipCode}";
     }
 
@@ -81,8 +87,4 @@ class Address
             return 0;
         }
     }
-
-
-
-
 }
