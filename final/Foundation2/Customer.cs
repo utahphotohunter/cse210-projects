@@ -2,7 +2,6 @@ class Customer
 {
     private string _name;
     private string _address;
-
     private string _shippingLabel;
 // ----------------------------------------------
     public void SetName(string name)
