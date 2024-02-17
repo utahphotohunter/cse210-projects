@@ -48,7 +48,18 @@ class Product
     // ----------------------------------------------
     public void MakeProduct(string productId, string name, int unitPrice, int quantity)
     {
+        string unitPriceString = unitPrice.ToString();
+        string quantityString = quantity.ToString();
 
+        _product.Add(productId);
+        _product.Add(name);
+        _product.Add(unitPriceString);
+        _product.Add(quantityString);
+    }
+
+    public List<string> GetProduct()
+    {
+        return _product;
     }
 
 
