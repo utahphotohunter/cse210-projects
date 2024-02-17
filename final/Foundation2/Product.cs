@@ -5,7 +5,7 @@ class Product
     private string _name;
     private int _unitPrice;
     private int _quantity;
-    // ----------------------------------------------
+// ----------------------------------------------
     public void SetProductId(string productId)
     {
         _productId = productId;
@@ -45,7 +45,7 @@ class Product
     {
         return _quantity;
     }
-    // ----------------------------------------------
+// ----------------------------------------------
     public void MakeProduct(string productId, string name, int unitPrice, int quantity)
     {
         string unitPriceString = unitPrice.ToString();
