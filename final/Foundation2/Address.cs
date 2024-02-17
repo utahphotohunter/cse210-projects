@@ -1,3 +1,5 @@
+using System.Reflection.Metadata.Ecma335;
+
 class Address
 {
     private string _address;
@@ -65,6 +67,19 @@ class Address
     public string GetAddress()
     {
         return _address;
+    }
+
+    public int IsUSA(string country)
+    {
+        if (country == "USA" || country == "United States of America" || country == "US")
+        {
+            return 1;
+        }
+
+        else
+        {
+            return 0;
+        }
     }
 
 
