@@ -1,9 +1,10 @@
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 
 class Exercise
 {
     private string _date;
-    private int _duration;
+    private float _durationInMinutes;
 //-----------------------------------------------------
     public void SetDate(string date)
     {
@@ -15,17 +16,24 @@ class Exercise
         return _date;
     }
 
-    public void SetDuration(int duration)
+    public void SetDuration(int durationInMinutes)
     {
-        _duration = duration;
+        _durationInMinutes = durationInMinutes;
     }
 
-    public int GetDuration()
+    public float GetDuration()
     {
-        return _duration;
+        return _durationInMinutes;
     }
 //-----------------------------------------------------
-    public virtual string GetSummary()
+    public double GetPace(float durationInMintutes, double miles)
+    {
+        double pace = Math.Round(durationInMintutes / miles, 1);
+
+        return pace;
+    }
+
+    public virtual string GetSummary(string date, float durationInMintutes, double miles, double speed, double pace, string type)
     {
         return "";
     }
