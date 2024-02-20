@@ -17,7 +17,7 @@ class Reception : Event
         return $"Join us for {title}! {description} on {date} at {time}. The event will be at {address}";
     }
 
-    public override string GetFullDetails(string title, string description, string date, string time, string address, string type = "Reception", string limit = "(insert limit)", string speaker = "(insert speaker)", string rsvp = "thisreception@yahoo.com", string weather = "na")
+    public override string GetFullDetails(string title, string description, string date, string time, string address, string type = "Reception", string limit = "na", string speaker = "na", string rsvp = "(insert email)", string weather = "na")
     {
         return $"{type} - RSVP at {rsvp} - Join us for {title}! {description} on {date} at {time}. The event will be at {address}.";
     }
