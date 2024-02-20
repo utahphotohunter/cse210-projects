@@ -55,4 +55,19 @@ class Event
     {
         return _address;
     }
+//-------------------------------------------------------------
+    public string GetStandardDetails(string title, string description, string date, string time, string address)
+    {
+        return $"{title}, {description}, {date}, {time}, {address}";
+    }
+
+    public string GetFullDetails(string title, string description, string date, string time, string address, string type = "basic", string limit = "none", string speaker = "na", string rsvp = "no", string weather = "na")
+    {
+        return "";
+    }
+
+    public string GetShortDescription(string title, string date, string type = "basic")
+    {
+        return "";
+    }
 }
