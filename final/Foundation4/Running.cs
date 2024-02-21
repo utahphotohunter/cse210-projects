@@ -14,24 +14,24 @@ class Running : Exercise
         return _distanceInFeet;
     }
 //-----------------------------------------------------
-    public double GetSpeed(float durationInMinutes, double miles)
+    public override void SetSpeed(int durationInMinutes, double miles)
     {
         float hours = durationInMinutes / 60;
-        double speed = Math.Round(hours / miles, 1);
+        double speed = Math.Round(miles / hours, 2);
 
-        return speed;
+        _speed = speed;
     }
 
-    public double GetMiles(float distanceInFeet)
+    public override void SetMiles(float distanceInFeet, double miles, int laps)
     {
-        double miles = Math.Round(distanceInFeet / 5280, 1);
-
-        return miles;
+        double mile = Math.Round(distanceInFeet / 5280, 1);
+        
+        _miles = mile;
     }
 
-    public override string GetSummary(string date, float durationInMinutes, double miles, double speed, double pace, string type = "Running")
+
+    public override void SetExerciseType(string exerciseType = "running")
     {
-        string summary = $"{date} {type} ({durationInMinutes} min): Distance {miles} miles, Speed {speed}, Pace: {pace} min per mile";
-        return summary;
+        _exerciseType = exerciseType;
     }
 }

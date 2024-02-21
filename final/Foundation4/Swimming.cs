@@ -14,23 +14,23 @@ class Swimming : Exercise
         return _laps;
     }
 //-----------------------------------------------------
-    public double GetMiles(int laps)
+    public override void SetMiles(float distanceInFeet, double miles, int laps)
     {
-        double miles = Math.Round(laps * 50 / 1000 * 0.62, 1);
-
-        return miles;
+        double mile = Math.Round(laps * 50 / 1000 * 0.62, 1);
+        
+        _miles = mile;
     }
 
-    public double GetSpeed(float durationInMinutes, float miles)
+
+    public double GetSpeed(int durationInMinutes, double miles)
     {
         float hours = durationInMinutes / 60;
-        double speed = Math.Round(hours / miles, 1);
+        double speed = Math.Round(miles / hours, 1);
         return speed;
     }
 
-    public override string GetSummary(string date, float durationInMinutes, double miles, double speed, double pace, string type = "Swimming")
+    public override void SetExerciseType(string exerciseType = "swimming")
     {
-        string summary = $"{date} {type} ({durationInMinutes} min): Distance {miles} miles, Speed {speed}, Pace: {pace} min per mile";
-        return summary;
+        _exerciseType = exerciseType;
     }
 }

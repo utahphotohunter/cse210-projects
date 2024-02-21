@@ -1,33 +1,21 @@
 class Biking : Exercise
 {
-    private float _miles;
-    private double _speed;
 //-----------------------------------------------------
-    public void SetMiles(float miles)
+    public override void SetMiles(float distanceInFeet, double miles, int laps)
     {
         _miles = miles;
     }
 
-    public float GetMiles()
-    {
-        return _miles;
-    }
-
-    public void SetSpeed(float durationInMinutes, float miles)
+    public override void SetSpeed(int durationInMinutes, double miles)
     {
         float hours = durationInMinutes / 60;
-        double speed = Math.Round(hours / miles, 1);
+        double speed = Math.Round(miles / hours, 1);
+        
         _speed = speed;
     }
-
-    private double GetSpeed()
-    {
-        return _speed;
-    }
 //-----------------------------------------------------
-    public override string GetSummary(string date, float durationInMinutes, double miles, double speed, double pace, string type = "Biking")
+    public override void SetExerciseType(string exerciseType = "biking")
     {
-        string summary = $"{date} {type} ({durationInMinutes} min): Distance {miles} miles, Speed {speed}, Pace: {pace} min per mile";
-        return summary;
+        _exerciseType = exerciseType;
     }
 }

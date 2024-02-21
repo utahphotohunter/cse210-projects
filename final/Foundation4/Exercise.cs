@@ -4,7 +4,11 @@ using System.Runtime.InteropServices;
 class Exercise
 {
     private string _date;
-    private float _durationInMinutes;
+    private int _durationInMinutes;
+    protected double _speed;
+    private double _pace;
+    protected double _miles;
+    protected string _exerciseType;
 //-----------------------------------------------------
     public void SetDate(string date)
     {
@@ -21,20 +25,61 @@ class Exercise
         _durationInMinutes = durationInMinutes;
     }
 
-    public float GetDuration()
+    public int GetDuration()
     {
         return _durationInMinutes;
     }
-//-----------------------------------------------------
-    public double GetPace(float durationInMintutes, double miles)
+
+    public virtual void SetMiles(float distanceInFeet, double miles, int laps)
+    {
+
+    }
+
+    public double GetMiles()
+    {
+        return _miles;
+    }
+
+    public virtual void SetSpeed(int durationInMinutes, double miles)
+    {
+
+    }
+
+    public double GetSpeed()
+    {
+        return _speed;
+    }
+
+    public void SetPace(int durationInMintutes, double miles)
     {
         double pace = Math.Round(durationInMintutes / miles, 1);
 
-        return pace;
+        _pace = pace;
     }
 
-    public virtual string GetSummary(string date, float durationInMintutes, double miles, double speed, double pace, string type)
+    public double GetPace()
     {
-        return "";
+        return _pace;
+    }
+
+    public virtual void SetExerciseType(string exerciseType)
+    {
+        _exerciseType = exerciseType;
+    }
+
+    public string GetExerciseType()
+    {
+        return _exerciseType;
+    }
+//-----------------------------------------------------
+    public virtual string GetSummary(string date, int durationInMinutes, double miles, double speed, double pace, string exerciseType)
+    {
+        string summary = $"{date} {exerciseType} ({durationInMinutes} min) - Distance: {miles} miles, Speed: {speed} mph, Pace: {pace} min per mile";
+        return summary;
+    }
+
+    public virtual string GetType(string type)
+    {
+        return type;
     }
 }
